@@ -1,7 +1,5 @@
 package NBIClasses.Conflicts;
 
-import Interfaces.ConflictSearch;
-
 public class ConflictsInfo {
 
     String lastNameOrCompanyName, firstName;
