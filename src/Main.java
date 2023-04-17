@@ -26,7 +26,7 @@ public class Main {
 
     public static void newClient() {
 
-        //figure out why scanner is not grabbing
+        //figure out why scanner is not grabbing.
 
         System.out.println("What is the client name?: ");
         String clientName = scanner.nextLine();
