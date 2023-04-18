@@ -28,19 +28,19 @@ public class Main {
 
         //figure out why scanner is not grabbing.
 
+        scanner.nextLine();
+
         System.out.println("What is the client name?: ");
         String clientName = scanner.nextLine();
         System.out.println("What is the description of matter?: ");
         String description = scanner.nextLine();
         scanner.close();
 
-        StringTokenizer st = new StringTokenizer(description);
-        while(st.hasMoreTokens()) {
-            System.out.println(st.nextToken());
-        }
+        NewClient nc = new NewClient(clientName, 1, description, true);
 
-        System.out.printf("client name: %s" +
-                "\ndescription of matter: %s", clientName, description);
+        System.out.printf("CLIENT NAME: %s" +
+                "\nDESCRIPTION OF MATTER: %s" +
+                "\nCONFLICT SEARCH REQUIRED: %b", nc.getClientName(), nc.getDescription(), nc.isConflictSearch());
 
     }
 
@@ -51,9 +51,12 @@ public class Main {
         System.out.println("What is the client number?: ");
         int clientNumber = scanner.nextInt();
         //then grabs client name from number;
+
+        scanner.nextLine();
+
         System.out.println("What is the description of matter?: ");
-        String description = scanner.next();
-        System.out.println("Are there parties involved in the matter?: " +
+        String description = scanner.nextLine();
+        System.out.println("\nAre there parties involved in the matter?: " +
                 "\n1. Yes" +
                 "\n2. No");
         int csr = scanner.nextInt();;
@@ -66,9 +69,11 @@ public class Main {
             bool = false;
         }
 
-        System.out.printf("client number: %d" +
-                "\ndescription of matter: %s" +
-                "\nconflict search required: %b", clientNumber, description, bool);
+        NewMatter nm = new NewMatter(clientNumber, "dumby name", 1, description, bool);
+
+        System.out.printf("\nCLIENT NUMBER: %d" +
+                "\nDESCRIPTION OF MATTER: %s" +
+                "\nCONFLICT SEARCH REQUIRED: %b", nm.getClientNumber(), nm.getDescription(), nm.isConflictSearch());
 
     }
 
